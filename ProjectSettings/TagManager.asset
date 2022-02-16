@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Mouse
+  - Interactables
+  - UI_Timer
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 180902443
+    locked: 0
+  - name: Mouse
+    uniqueID: 1393526809
+    locked: 0
+  - name: Interactables
+    uniqueID: 2140727223
+    locked: 0
+  - name: UI
+    uniqueID: 3408680801
     locked: 0
