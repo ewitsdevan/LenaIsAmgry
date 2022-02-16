@@ -44,11 +44,11 @@ TagManager:
   - name: Background
     uniqueID: 180902443
     locked: 0
-  - name: Mouse
-    uniqueID: 1393526809
-    locked: 0
   - name: Interactables
     uniqueID: 2140727223
+    locked: 0
+  - name: Mouse
+    uniqueID: 1393526809
     locked: 0
   - name: UI
     uniqueID: 3408680801
