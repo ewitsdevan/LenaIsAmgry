@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MouseInteraction : MonoBehaviour
+public class MouseInteraction : MonoBehaviour, IPointerClickHandler
 {
     public GameManager gameManager;
-
-    public GameObject winCanvas;
-
     private bool isClicked;
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && isClicked == false)
+        if (isClicked == false)
         {
+            gameManager.WinGame();
             isClicked = true;
         }
     }

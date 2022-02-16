@@ -5,12 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject timerObject;
-    private bool timerIsEnd;
 
     public int mouseObject;
 
     public int minNumber;
     public int maxNumber;
+
+    public GameObject winCanvas;
+    public GameObject loseCanvas;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,9 +20,14 @@ public class GameManager : MonoBehaviour
         mouseObject = Random.Range(minNumber, maxNumber);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void WinGame()
     {
-        timerIsEnd = timerObject.GetComponent<Timer>().timerEnd;
+        timerObject.GetComponent<Timer>().stopTimer = true;
+        winCanvas.SetActive(true);
+    }
+
+    public void LoseGame()
+    {
+        loseCanvas.SetActive(true);
     }
 }

@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public float time;
-    public bool timerEnd;
+    public bool stopTimer;
+
+    public GameManager gameManager;
 
     private Slider timerSlider;
 
@@ -30,13 +32,17 @@ public class Timer : MonoBehaviour
 
     void TimeCheck()
     {
-        if(time > 0)
+        if (stopTimer == false)
         {
-            StartCoroutine(TimerCountdown());
-        }
-        else
-        {
-            timerEnd = true;
+            if (time > 0)
+            {
+                StartCoroutine(TimerCountdown());
+            }
+            else
+            {
+                gameManager.LoseGame();
+                stopTimer = true;
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ObjectsInteraction : MonoBehaviour
+public class ObjectsInteraction : MonoBehaviour, IPointerClickHandler
 {
     public GameManager gameManager;
     public int objectNumber;
@@ -28,14 +28,13 @@ public class ObjectsInteraction : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && isClicked == false)
+        if (isClicked == false)
         {
             spriteRend.sprite = spriteClicked;
 
-            if(isMouseObject)
+            if (isMouseObject)
             {
                 mouseObject.SetActive(true);
             }
