@@ -8,11 +8,13 @@ public class ObjectsInteraction : MonoBehaviour, IPointerClickHandler
     public GameManager gameManager;
     public int objectNumber;
 
+    public bool doesFall;
+
     private bool isClicked;
     private bool isMouseObject;
 
     private SpriteRenderer spriteRend;
-    public Sprite spriteClicked;
+    public Sprite spriteBroken;
 
     public GameObject mouseObject;
 
@@ -32,7 +34,14 @@ public class ObjectsInteraction : MonoBehaviour, IPointerClickHandler
     {
         if (isClicked == false)
         {
-            spriteRend.sprite = spriteClicked;
+            if(doesFall)
+            {
+                GetComponent<Rigidbody2D>().WakeUp();
+            }
+            else
+            {
+                //spriteRend.sprite = spriteBroken;
+            }
 
             if (isMouseObject)
             {
@@ -40,6 +49,16 @@ public class ObjectsInteraction : MonoBehaviour, IPointerClickHandler
             }
 
             isClicked = true;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            spriteRend.sprite = spriteBroken;
+            GetComponent<Rigidbody2D>().Sleep();
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

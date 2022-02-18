@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Mouse
   - Interactables
   - UI_Timer
-  - 
+  - Ground
   - 
   - 
   - 
@@ -44,11 +45,14 @@ TagManager:
   - name: Background
     uniqueID: 180902443
     locked: 0
-  - name: Interactables
+  - name: BG Object
     uniqueID: 2140727223
     locked: 0
   - name: Mouse
     uniqueID: 1393526809
+    locked: 0
+  - name: FG Object
+    uniqueID: 3646450089
     locked: 0
   - name: UI
     uniqueID: 3408680801
