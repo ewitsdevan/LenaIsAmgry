@@ -12,13 +12,20 @@ public class Timer : MonoBehaviour
 
     private Slider timerSlider;
 
+    public GameObject countdownSFX;
+
+    void Awake()
+    {
+        countdownSFX.SetActive(true);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        time = 10f;
+        time = 11f;
         timerSlider = GetComponent<Slider>();
 
-        StartCoroutine(TimerCountdown());
+        StartCoroutine(TimerCountdown());      
     }
 
     IEnumerator TimerCountdown()
