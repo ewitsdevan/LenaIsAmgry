@@ -18,6 +18,8 @@ public class ObjectsInteraction : MonoBehaviour, IPointerClickHandler
 
     public GameObject mouseObject;
 
+    public GameObject damagedSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,8 @@ public class ObjectsInteraction : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                //spriteRend.sprite = spriteBroken;
+                spriteRend.sprite = spriteBroken;
+                damagedSFX.GetComponent<AudioSource>().Play();
             }
 
             if (isMouseObject)
@@ -59,6 +62,7 @@ public class ObjectsInteraction : MonoBehaviour, IPointerClickHandler
             spriteRend.sprite = spriteBroken;
             GetComponent<Rigidbody2D>().Sleep();
             GetComponent<BoxCollider2D>().enabled = false;
+            damagedSFX.GetComponent<AudioSource>().Play();
         }
     }
 }
